@@ -1,2 +1,2 @@
 # /src
-> includes the raw models/graphics which will be imported
+> includes the raw assets which will be imported
