@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="1" version="2.0" version_name="Godot Engine v2.0.alpha.custom_build">
+<resource_file type="PackedScene" subresource_count="2" version="2.0" version_name="Godot Engine v2.0.alpha.custom_build">
+	<ext_resource path="res://main.gd" type="Script" index="0"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "conn_count" </string>
@@ -7,29 +8,25 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="8">
-				<string> "Control" </string>
-				<string> "anchor/right" </string>
-				<string> "anchor/bottom" </string>
-				<string> "focus/ignore_mouse" </string>
-				<string> "focus/stop_mouse" </string>
-				<string> "size_flags/horizontal" </string>
-				<string> "size_flags/vertical" </string>
+			<string_array  len="7">
+				<string> "base" </string>
+				<string> "Node" </string>
+				<string> "script/script" </string>
 				<string> "__meta__" </string>
+				<string> "debug" </string>
+				<string> "world" </string>
+				<string> "ui" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 1 </int>
+			<int> 4 </int>
 			<string> "nodes" </string>
-			<int_array  len="21"> 				-1, -1, 0, 0, -1, 7, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 0 </int_array>
+			<int_array  len="32"> 				-1, -1, 1, 0, -1, 2, 2, 0, 3, 1, 0, 0, 0, 1, 4, -1, 0, 0, 0, 0, 1, 5, -1, 0, 0, 0, 0, 1, 6, -1, 0, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="5" shared="false">
-				<int> 1 </int>
-				<bool> False </bool>
-				<bool> True </bool>
-				<int> 3 </int>
+			<array  len="2" shared="false">
+				<resource  external="0">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "2D" </string>
+					<string> "Script" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
