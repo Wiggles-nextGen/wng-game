@@ -11,9 +11,10 @@ extends VBoxContainer
 
 var dataarr = []
 export(int) var maxdata = 100
-export(int) var drawheight = 60
+export(int) var drawheight = 50
 export(float) var scale = 1
 export(String) var text = "Label"
+export(bool) var graph = true
 var maxheight
 var offset
 
@@ -27,8 +28,9 @@ func _ready():
 	_initarr()
 
 func _draw():
-	for i in range(1,dataarr.size()):
-		draw_line(Vector2(i-1,dataarr[i-1]+offset),Vector2(i,dataarr[i]+offset),Color(1,1,1),1)
+	if(graph):
+		for i in range(1,dataarr.size()):
+			draw_line(Vector2(i-1,dataarr[i-1]+offset),Vector2(i,dataarr[i]+offset),Color(1,1,1),1)
 
 func addData(p):
 	p = p * scale
