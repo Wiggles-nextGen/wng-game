@@ -9,7 +9,7 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="26">
+			<string_array  len="27">
 				<string> "CanvasLayer" </string>
 				<string> "process/pause_mode" </string>
 				<string> "layer" </string>
@@ -30,7 +30,8 @@
 				<string> "size_flags/vertical" </string>
 				<string> "script/script" </string>
 				<string> "VBoxContainer" </string>
-				<string> "HBoxContainer" </string>
+				<string> "GridContainer" </string>
+				<string> "columns" </string>
 				<string> "Graph_FPS" </string>
 				<string> "_import_path" </string>
 				<string> "drawheight" </string>
@@ -40,7 +41,7 @@
 			<string> "node_count" </string>
 			<int> 7 </int>
 			<string> "nodes" </string>
-			<int_array  len="145"> 				-1, -1, 0, 0, -1, 6, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 0, 0, 0, 7, 7, -1, 11, 8, 6, 9, 6, 10, 7, 11, 7, 12, 7, 13, 7, 14, 8, 15, 8, 16, 9, 17, 9, 18, 10, 0, 1, 0, 19, 19, -1, 6, 8, 6, 9, 6, 14, 8, 15, 8, 16, 0, 17, 0, 0, 2, 0, 20, 20, -1, 6, 12, 11, 13, 12, 14, 8, 15, 8, 16, 0, 17, 0, 0, 3, 0, 19, 21, 13, 5, 22, 14, 13, 12, 6, 15, 23, 16, 5, 17, 0, 3, 0, 19, 24, 13, 7, 22, 14, 10, 18, 12, 19, 13, 12, 6, 20, 23, 16, 5, 17, 0, 3, 0, 19, 25, 13, 7, 22, 14, 10, 21, 12, 22, 13, 12, 6, 20, 23, 16, 5, 17, 0 </int_array>
+			<int_array  len="143"> 				-1, -1, 0, 0, -1, 6, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 0, 0, 0, 7, 7, -1, 11, 8, 6, 9, 6, 10, 7, 11, 7, 12, 7, 13, 7, 14, 8, 15, 8, 16, 9, 17, 9, 18, 10, 0, 1, 0, 19, 19, -1, 6, 8, 6, 9, 6, 14, 8, 15, 8, 16, 0, 17, 0, 0, 2, 0, 20, 20, -1, 7, 12, 11, 13, 12, 14, 8, 15, 8, 16, 0, 17, 0, 21, 6, 0, 3, 0, 19, 22, 13, 5, 23, 14, 13, 15, 6, 16, 24, 17, 5, 18, 0, 3, 0, 19, 25, 13, 6, 23, 14, 11, 19, 13, 20, 6, 21, 24, 17, 5, 18, 0, 3, 0, 19, 26, 13, 6, 23, 14, 11, 22, 13, 12, 6, 21, 24, 17, 5, 18, 0 </int_array>
 			<string> "variants" </string>
 			<array  len="23" shared="false">
 				<int> 2 </int>
@@ -190,9 +191,10 @@
 				<int> 3 </int>
 				<resource  external="0">  </resource>
 				<real> 780 </real>
-				<real> 17 </real>
+				<real> 59 </real>
 				<resource  external="1">  </resource>
 				<node_path> "" </node_path>
+				<real> 17 </real>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
 					<string> "Script" </string>
@@ -331,8 +333,8 @@
 				</dictionary>
 				<int> 60 </int>
 				<real> 1 </real>
-				<real> 41 </real>
-				<real> 78 </real>
+				<real> 21 </real>
+				<real> 38 </real>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
 					<string> "Script" </string>
@@ -469,8 +471,7 @@
 						<int> 0 </int>
 					</dictionary>
 				</dictionary>
-				<real> 82 </real>
-				<real> 119 </real>
+				<real> 42 </real>
 			</array>
 			<string> "version" </string>
 			<int> 1 </int>
