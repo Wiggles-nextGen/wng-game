@@ -9,7 +9,7 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="30">
+			<string_array  len="43">
 				<string> "CanvasLayer" </string>
 				<string> "process/pause_mode" </string>
 				<string> "layer" </string>
@@ -40,13 +40,26 @@
 				<string> "Graph_FIXED" </string>
 				<string> "Graph_VRAM_MAX" </string>
 				<string> "Graph_VRAM_USED" </string>
+				<string> "HBoxContainer" </string>
+				<string> "Version" </string>
+				<string> "Label" </string>
+				<string> "range/min" </string>
+				<string> "range/max" </string>
+				<string> "range/step" </string>
+				<string> "range/page" </string>
+				<string> "range/value" </string>
+				<string> "range/exp_edit" </string>
+				<string> "rounded_values" </string>
+				<string> "text" </string>
+				<string> "percent_visible" </string>
+				<string> "Commit" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 9 </int>
+			<int> 12 </int>
 			<string> "nodes" </string>
-			<int_array  len="181"> 				-1, -1, 0, 0, -1, 6, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 0, 0, 0, 7, 7, -1, 11, 8, 6, 9, 6, 10, 7, 11, 7, 12, 7, 13, 7, 14, 8, 15, 8, 16, 9, 17, 9, 18, 10, 0, 1, 0, 19, 19, -1, 6, 8, 6, 9, 6, 14, 8, 15, 8, 16, 0, 17, 0, 0, 2, 0, 20, 20, -1, 7, 12, 11, 13, 12, 14, 8, 15, 8, 16, 0, 17, 0, 21, 6, 0, 3, 0, 19, 22, 13, 5, 23, 14, 13, 15, 6, 16, 24, 17, 25, 18, 0, 3, 0, 19, 26, 13, 6, 23, 14, 11, 19, 13, 20, 6, 21, 24, 17, 25, 18, 0, 3, 0, 19, 27, 13, 6, 23, 14, 11, 22, 13, 23, 6, 21, 24, 17, 25, 18, 0, 3, 0, 19, 28, 13, 6, 23, 14, 11, 24, 13, 25, 6, 26, 24, 17, 25, 18, 0, 3, 0, 19, 29, 13, 6, 23, 14, 11, 27, 13, 12, 6, 26, 24, 17, 25, 8, 0 </int_array>
+			<int_array  len="274"> 				-1, -1, 0, 0, -1, 6, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 0, 0, 0, 7, 7, -1, 11, 8, 6, 9, 6, 10, 7, 11, 7, 12, 7, 13, 7, 14, 8, 15, 8, 16, 9, 17, 9, 18, 10, 0, 1, 0, 19, 19, -1, 6, 8, 6, 9, 6, 14, 8, 15, 8, 16, 0, 17, 0, 0, 2, 0, 20, 20, -1, 7, 12, 11, 13, 12, 14, 8, 15, 8, 16, 0, 17, 9, 21, 6, 0, 3, 0, 19, 22, 13, 5, 23, 14, 13, 15, 6, 16, 24, 17, 25, 18, 0, 3, 0, 19, 26, 13, 6, 23, 14, 11, 19, 13, 20, 6, 21, 24, 17, 25, 18, 0, 3, 0, 19, 27, 13, 6, 23, 14, 11, 22, 13, 23, 6, 21, 24, 17, 25, 18, 0, 3, 0, 19, 28, 13, 6, 23, 14, 11, 24, 13, 25, 6, 26, 24, 17, 25, 18, 0, 3, 0, 19, 29, 13, 6, 23, 14, 11, 27, 13, 28, 6, 26, 24, 17, 25, 8, 0, 2, 0, 30, 30, -1, 7, 11, 29, 12, 11, 13, 30, 14, 8, 15, 8, 16, 0, 17, 0, 0, 9, 0, 32, 31, -1, 14, 12, 31, 13, 32, 14, 18, 15, 18, 16, 9, 33, 3, 34, 33, 35, 33, 36, 33, 37, 3, 38, 8, 39, 8, 40, 34, 41, 35, 0, 9, 0, 32, 42, -1, 15, 10, 36, 12, 11, 13, 32, 14, 18, 15, 18, 16, 0, 33, 3, 34, 33, 35, 33, 36, 33, 37, 3, 38, 8, 39, 8, 40, 37, 41, 35, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="28" shared="false">
+			<array  len="38" shared="false">
 				<int> 2 </int>
 				<int> 99 </int>
 				<vector2> 0, 0 </vector2>
@@ -194,7 +207,7 @@
 				<int> 3 </int>
 				<resource  external="0">  </resource>
 				<real> 780 </real>
-				<real> 101 </real>
+				<real> 563 </real>
 				<resource  external="1">  </resource>
 				<node_path> "" </node_path>
 				<real> 17 </real>
@@ -615,6 +628,16 @@
 					</dictionary>
 				</dictionary>
 				<real> 84 </real>
+				<real> 101 </real>
+				<real> 567 </real>
+				<real> 580 </real>
+				<real> 742 </real>
+				<real> 13 </real>
+				<real> 1 </real>
+				<string> "version" </string>
+				<real> -1 </real>
+				<real> 746 </real>
+				<string> "hash" </string>
 			</array>
 			<string> "version" </string>
 			<int> 1 </int>

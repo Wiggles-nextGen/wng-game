@@ -34,6 +34,10 @@ func _ready():
 	_screen_resized()
 	set_process(true)
 	
+	var version = get_node("VBoxContainer/HBoxContainer/Version")
+	var commit = get_node("VBoxContainer/HBoxContainer/Commit")
+	get_node("/root/resourceController").call("setVersionAndCommit",version,commit)
+	
 	#VRAM max shouled changed
 	graph_vram_max.call("setText","VRAM max: "+str(Performance.get_monitor(Performance.RENDER_USAGE_VIDEO_MEM_TOTAL)))
 
