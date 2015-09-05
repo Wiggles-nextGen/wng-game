@@ -9,6 +9,8 @@
 
 extends Node
 
+var version = {}
+
 var versionStr
 var commitStr = "f39e57abcfbc627a3d6ae847f7f8773ab6eb734a" #TODO: change
 
@@ -20,11 +22,10 @@ func getVersionAsStr():
 	if(!versionStr):
 		var file = File.new()
 		file.open("res://version.json",file.READ)
-		var tmp = file.get_line()
+		var tmp = file.get_as_text()
 		file.close()
-		var v = {}
-		v.parse_json(tmp)
-		versionStr = "v" + str(v["major"]) +"."+ str(v["minor"]) +"."+ str(v["patch"]) +"."+ str(v["status"])
+		version.parse_json(tmp)
+		versionStr = "v" + str(version["major"]) +"."+ str(version["minor"]) +"."+ str(version["patch"]) +"."+ str(version["status"])
 	return versionStr
 func getCommitAsStr():
 	return commitStr
