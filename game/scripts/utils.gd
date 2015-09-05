@@ -14,10 +14,26 @@ var version = {}
 var versionStr
 var commitStr = "f39e57abcfbc627a3d6ae847f7f8773ab6eb734a" #TODO: change
 
+var loadingPopupScene = load("res://hud/loading.xscn")
+var loadingPopup
+
 
 func _ready():
-	pass
+	loadingPopup = loadingPopupScene.instance()
 
+###
+# Utils to show/hide a loading popup
+###
+func showLoading(node):
+	node.add_child(loadingPopup)
+	get_tree().set_pause(true)
+func hideLoading(node):
+	node.remove_child(loadingPopup)
+	get_tree().set_pause(false)
+
+###
+# Utils to get/show the Version
+###
 func getVersionAsStr():
 	if(!versionStr):
 		var file = File.new()

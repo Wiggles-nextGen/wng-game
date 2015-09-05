@@ -15,7 +15,6 @@ var gpu_vram
 var graph_fps
 var graph_tpf
 var graph_fixed
-var graph_vram_max
 var graph_vram_used
 
 var con
@@ -27,7 +26,6 @@ func _ready():
 	graph_fps = con.get_node("Graph_FPS")
 	graph_tpf = con.get_node("Graph_TPF")
 	graph_fixed = con.get_node("Graph_FIXED")
-	graph_vram_max = con.get_node("Graph_VRAM_MAX")
 	graph_vram_used = con.get_node("Graph_VRAM_USED")
 	
 	get_tree().connect("screen_resized",self,"_screen_resized")
@@ -37,22 +35,19 @@ func _ready():
 	var version = get_node("VBoxContainer/HBoxContainer/Version")
 	var commit = get_node("VBoxContainer/HBoxContainer/Commit")
 	get_node("/root/utils").call("setVersionAndCommit",version,commit)
-	
-	#VRAM max shouled changed
-	graph_vram_max.call("setText","VRAM max: "+str(Performance.get_monitor(Performance.RENDER_USAGE_VIDEO_MEM_TOTAL)))
 
 func _process(delta):
 	graph_fps.call("setText","FPS: "+str(Performance.get_monitor(Performance.TIME_FPS)))
 	graph_fps.call("addData",Performance.get_monitor(Performance.TIME_FPS))
 	
-	graph_tpf.call("setText","TPF: "+str(Performance.get_monitor(Performance.TIME_PROCESS)))
+	graph_tpf.call("setText","Process: \n"+str(Performance.get_monitor(Performance.TIME_PROCESS)))
 	graph_tpf.call("addData",Performance.get_monitor(Performance.TIME_PROCESS))
 	
-	graph_fixed.call("setText","fixed: "+str(Performance.get_monitor(Performance.TIME_FIXED_PROCESS)))
+	graph_fixed.call("setText","Fixed Process: \n”"+str(Performance.get_monitor(Performance.TIME_FIXED_PROCESS)))
 	graph_fixed.call("addData",Performance.get_monitor(Performance.TIME_FIXED_PROCESS))
 	
-	graph_vram_used.call("setText","VRAM used: "+str(Performance.get_monitor(Performance.RENDER_VIDEO_MEM_USED)))
-	graph_vram_used.call("addData",Performance.get_monitor(Performance.RENDER_VIDEO_MEM_USED))
+	graph_vram_used.call("setText","VRAM: "+str(Performance.get_monitor(Performance.RENDER_VIDEO_MEM_USED)) +"/" +str(Performance.get_monitor(Performance.RENDER_USAGE_VIDEO_MEM_TOTAL)))
+	graph_vram_used.call("addData",Performance.get_monitor(Performance.RENDER_USAGE_VIDEO_MEM_TOTAL))
 
 func _screen_resized():
 	var t = con.get_children()
