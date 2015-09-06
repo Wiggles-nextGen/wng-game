@@ -15,9 +15,10 @@ signal load_pooling_start
 signal load_pooling_finished
 
 var progressBarNode
-var loader = Thread.new()
+var loading = Thread.new()
 var pooling = Thread.new()
 var pool=[]
+var dir = Directory.new()
 
 
 func _ready():
@@ -34,10 +35,9 @@ func loadResource(data):
 func _poolLoading(data):
 	emit_signal("load_pooling_start")
 	while(pool.size() > 0):
-		print(pool)
 		var toLoad = pool[0]
-		loader.start(self,"_loadRes",toLoad)
-		loader.wait_to_finish()
+		loading.start(self,"_loadRes",toLoad)
+		loading.wait_to_finish()
 		pool.remove(pool.find(toLoad))
 	emit_signal("load_pooling_finished")
 
@@ -45,12 +45,27 @@ func _loadRes(data):
 	emit_signal("resource_loading",data)
 	var res = {}
 	res.req = data
-	res.res = load(data)
 	
-	if(data != null):
-		for i in range(100):
-			if(progressBarNode):
-				progressBarNode.set_value(progressBarNode.get_value()+1)
-			OS.delay_msec(75)
+	if(dir.file_exists(data)):
+		var loader = ResourceLoader.load_interactive(data)
+		if(loader == null):
+			res.err = OK
+			progressBarNode.set_max(1)
+			res.res = ResourceLoader.load(data)
+			progressBarNode.set_value(1)
+		else:
+			progressBarNode.set_max(loader.get_stage_count())
+			while(loader.get_stage() < loader.get_stage_count()):
+				var err = loader.poll()
+				progressBarNode.set_value(loader.get_stage())
+				if(err == ERR_FILE_EOF):
+					res.err = OK
+					res.res = loader.get_resource()
+				elif(err != OK):
+					res.err = err
+					break
+	else:
+		res.err = ERR_FILE_NOT_FOUND
+	OS.delay_msec(1000)
 	progressBarNode.set_value(0)
 	emit_signal("resource_loaded",res)
