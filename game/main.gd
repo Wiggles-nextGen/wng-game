@@ -20,3 +20,4 @@ func _ready():
 	debug = get_node("debug")
 	
 	get_node("/root/mainController").call("setUp",debug,world,ui)
+	get_node("/root/resourceController").call("loadResource")
