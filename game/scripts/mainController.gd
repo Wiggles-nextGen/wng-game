@@ -56,6 +56,7 @@ func setUp(debug, world, ui):
 func _input(event):
 	if(event.type == InputEvent.KEY && event.scancode == KEY_F1 && event.pressed == true):
 		toggleDebug()
+
 ###
 # Utils to show/hide a loading popup
 ###

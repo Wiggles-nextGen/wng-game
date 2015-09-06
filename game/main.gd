@@ -19,4 +19,4 @@ func _ready():
 	ui = get_node("ui")
 	debug = get_node("debug")
 	
-	get_node("/root/utils").call("setUp",debug,world,ui)
+	get_node("/root/mainController").call("setUp",debug,world,ui)

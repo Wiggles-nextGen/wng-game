@@ -34,7 +34,7 @@ func _ready():
 	
 	var version = get_node("VBoxContainer/HBoxContainer/Version")
 	var commit = get_node("VBoxContainer/HBoxContainer/Commit")
-	get_node("/root/utils").call("setVersionAndCommit",version,commit)
+	get_node("/root/mainController").call("setVersionAndCommit",version,commit)
 
 func _process(delta):
 	graph_fps.call("setText","FPS: "+str(Performance.get_monitor(Performance.TIME_FPS)))
