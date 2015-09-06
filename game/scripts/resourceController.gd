@@ -9,10 +9,15 @@
 
 extends Node
 
-signal resource_loaded
-signal resource_loading
+signal resource_loaded(res)
+signal resource_loading(req)
+signal load_pooling_start
+signal load_pooling_finished
 
 var progressBarNode
+var loader = Thread.new()
+var pooling = Thread.new()
+var pool=[]
 
 
 func _ready():
@@ -21,14 +26,31 @@ func _ready():
 func setProgressBar(progressBar):
 	progressBarNode = progressBar
 
-func loadResource():
-	emit_signal("resource_loading")
-	var t = Thread.new()
-	t.start(self,"_loadRes",null,t.PRIORITY_NORMAL)
+func loadResource(data):
+	pool.append(data)
+	if(!pooling.is_active()):
+		pooling.start(self,"_poolLoading")
+
+func _poolLoading(data):
+	emit_signal("load_pooling_start")
+	while(pool.size() > 0):
+		print(pool)
+		var toLoad = pool[0]
+		loader.start(self,"_loadRes",toLoad)
+		loader.wait_to_finish()
+		pool.remove(pool.find(toLoad))
+	emit_signal("load_pooling_finished")
 
 func _loadRes(data):
-	for i in range(100):
-		if(progressBarNode):
-			progressBarNode.set_value(progressBarNode.get_value()+1)
-		OS.delay_msec(75)
-	emit_signal("resource_loaded")
+	emit_signal("resource_loading",data)
+	var res = {}
+	res.req = data
+	res.res = load(data)
+	
+	if(data != null):
+		for i in range(100):
+			if(progressBarNode):
+				progressBarNode.set_value(progressBarNode.get_value()+1)
+			OS.delay_msec(75)
+	progressBarNode.set_value(0)
+	emit_signal("resource_loaded",res)

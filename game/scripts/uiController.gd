@@ -38,7 +38,7 @@ func setUp(debug,ui):
 	uiNode = ui
 	
 	uiNode.add_child(loadingPopup)
-	hideLoading()
+	hideLoading(null)
 	debugNode.add_child(debugOverlay)
 	hideDebug()
 	if(OS.is_debug_build()):
@@ -46,16 +46,19 @@ func setUp(debug,ui):
 	
 	var progressBar = loadingPopup.get_child(0).call("getProgressBar")
 	resCtrl.call("setProgressBar",progressBar)
+	resCtrl.call("loadResource","res://hud/loading.xscn")
+	resCtrl.call("loadResource","res://hud/debug.xscn")
 
 ###
 # Utils to show/hide a loading popup
 ###
-func showLoading():
+func showLoading(data):
 	loadingPopup.get_child(0).show()
 	get_tree().set_pause(true)
-func hideLoading():
+func hideLoading(data):
 	loadingPopup.get_child(0).hide()
 	get_tree().set_pause(false)
+	print(data)
 
 ###
 # Utils to show/hide a debug overlay
