@@ -10,6 +10,7 @@
 extends Node
 
 var resCtrl
+var gameState
 
 var debugNode
 var uiNode
@@ -28,6 +29,7 @@ func _ready():
 	set_pause_mode(PAUSE_MODE_PROCESS)
 	set_process_input(true)
 	resCtrl = get_node("/root/resourceController")
+	gameState = get_node("/root/gameState")
 	
 	loadingPopup = loadingPopupScene.instance()
 	debugOverlay = debugOverlayScene.instance()
@@ -35,9 +37,15 @@ func _ready():
 	resCtrl.connect("load_pooling_start",self,"showLoading")
 	resCtrl.connect("load_pooling_finished",self,"hideLoading")
 	resCtrl.connect("resource_loaded",self,"_getData")
+	gameState.connect("game_start",self,"")
+	gameState.connect("game_over",self,"")
+
 func _input(event):
-	if(event.type == InputEvent.KEY && event.scancode == KEY_F1 && event.pressed):
-		toggleDebug()
+	if(event.type == InputEvent.KEY && event.pressed):
+		if(event.scancode == KEY_F1):
+			toggleDebug()
+		elif(event.scancode == KEY_PAUSE && !resCtrl.isLoading() && gameState.isInGame()):
+			togglePauseMenu()
 
 func setUp(debug,ui):
 	debugNode = debug
@@ -50,15 +58,17 @@ func setUp(debug,ui):
 	if(OS.is_debug_build()):
 		showDebug()
 	
-	var progressBar = loadingPopup.get_child(0).call("getProgressBar")
-	resCtrl.call("setProgressBar",progressBar)
+	var progressBar = loadingPopup.get_child(0).getProgressBar()
+	var progressBarTotal = loadingPopup.get_child(0).getProgressBarTotal()
+	resCtrl.setProgressBar(progressBar,progressBarTotal)
 	_load("res://gui/ui_menu.xscn", ui_menu_ID)
+	_load("res://gui/ui_menu.xscn", ui_pause_ID)
 
 ###
 # wrapps loading function
 ###
 func _load(url,id):
-	resCtrl.call("loadResource",{"url":url,"id":id})
+	resCtrl.loadResource({"url":url,"id":id})
 func _getData(data):
 	if(data.req.id == ui_menu_ID && data.err == OK):
 		if(!ui_menu):
@@ -80,13 +90,40 @@ func _getData(data):
 			uiNode.add_child(ui_pause)
 
 ###
+# Utils to show/hide game menu
+###
+func showMenu():
+	if(ui_menu):
+		ui_menu.get_child(0).show()
+func hideMenu():
+	if(ui_menu):
+		ui_menu.get_child(0).hide()
+func showPauseMenu():
+	if(ui_pause):
+		ui_pause.get_child(0).show()
+	get_tree().set_pause(true)
+func hidePauseMenu():
+	if(ui_pause):
+		ui_pause.get_child(0).hide()
+	get_tree().set_pause(false)
+func togglePauseMenu():
+	if(!ui_pause):
+		return
+	if(get_tree().is_paused()):
+		hidePauseMenu()
+	else:
+		showPauseMenu()
+
+###
 # Utils to show/hide a loading popup
 ###
 func showLoading():
-	loadingPopup.get_child(0).show()
+	if(loadingPopup):
+		loadingPopup.get_child(0).show()
 	get_tree().set_pause(true)
 func hideLoading():
-	loadingPopup.get_child(0).hide()
+	if(loadingPopup):
+		loadingPopup.get_child(0).hide()
 	get_tree().set_pause(false)
 
 ###

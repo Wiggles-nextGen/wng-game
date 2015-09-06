@@ -37,17 +37,17 @@ func _ready():
 	get_node("/root/mainController").call("setVersionAndCommit",version,commit)
 
 func _process(delta):
-	graph_fps.call("setText","FPS: "+str(Performance.get_monitor(Performance.TIME_FPS)))
-	graph_fps.call("addData",Performance.get_monitor(Performance.TIME_FPS))
+	graph_fps.setText("FPS: "+str(Performance.get_monitor(Performance.TIME_FPS)))
+	graph_fps.addData(Performance.get_monitor(Performance.TIME_FPS))
 	
-	graph_tpf.call("setText","Process: \n"+str(Performance.get_monitor(Performance.TIME_PROCESS)))
-	graph_tpf.call("addData",Performance.get_monitor(Performance.TIME_PROCESS))
+	graph_tpf.setText("Process: \n"+str(Performance.get_monitor(Performance.TIME_PROCESS)))
+	graph_tpf.addData(Performance.get_monitor(Performance.TIME_PROCESS))
 	
-	graph_fixed.call("setText","Fixed Process: \n”"+str(Performance.get_monitor(Performance.TIME_FIXED_PROCESS)))
-	graph_fixed.call("addData",Performance.get_monitor(Performance.TIME_FIXED_PROCESS))
+	graph_fixed.setText("Fixed Process: \n”"+str(Performance.get_monitor(Performance.TIME_FIXED_PROCESS)))
+	graph_fixed.addData(Performance.get_monitor(Performance.TIME_FIXED_PROCESS))
 	
-	graph_vram_used.call("setText","VRAM: "+str(Performance.get_monitor(Performance.RENDER_VIDEO_MEM_USED)) +"/" +str(Performance.get_monitor(Performance.RENDER_USAGE_VIDEO_MEM_TOTAL)))
-	graph_vram_used.call("addData",Performance.get_monitor(Performance.RENDER_USAGE_VIDEO_MEM_TOTAL))
+	graph_vram_used.setText("VRAM: "+str(Performance.get_monitor(Performance.RENDER_VIDEO_MEM_USED)) +"/" +str(Performance.get_monitor(Performance.RENDER_USAGE_VIDEO_MEM_TOTAL)))
+	graph_vram_used.addData(Performance.get_monitor(Performance.RENDER_USAGE_VIDEO_MEM_TOTAL))
 
 func _screen_resized():
 	var t = con.get_children()

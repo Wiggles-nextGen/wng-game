@@ -33,8 +33,8 @@ func setUp(debug, world, ui):
 	debugNode = debug
 	worldNode = world
 	uiNode = ui
-	uiCtrl.call("setUp",debugNode,uiNode)
-	mapCtrl.call("setUp",worldNode)
+	uiCtrl.setUp(debugNode,uiNode)
+	mapCtrl.setUp(worldNode)
 
 ###
 # Utils to get/show the Version

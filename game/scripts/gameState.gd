@@ -23,3 +23,6 @@ func serializeGame():
 
 func deserializeGame(file):
 	pass
+
+func isInGame():
+	return true
