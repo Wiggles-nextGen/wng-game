@@ -26,6 +26,7 @@ var loadingPopup
 
 
 func _ready():
+	set_pause_mode(PAUSE_MODE_PROCESS)
 	loadingPopup = loadingPopupScene.instance()
 	debugOverlay = debugOverlayScene.instance()
 
@@ -33,6 +34,7 @@ func _ready():
 #	Setup envirment
 ###
 func setUp(debug, world, ui):
+	set_process_input(true)
 	debugNode = debug
 	worldNode = world
 	uiNode = ui
@@ -45,14 +47,15 @@ func setUp(debug, world, ui):
 		showDebug()
 	
 	var progressBar = loadingPopup.get_child(0).call("getProgressBar")
-	print(progressBar)
 	
 	get_node("/root/resourceController").call("setUp",progressBar)
 	
 	get_node("/root/resourceController").connect("resource_loaded",self,"hideLoading")
 	showLoading()
 	get_node("/root/resourceController").call("loadResource")
-
+func _input(event):
+	if(event.type == InputEvent.KEY && event.scancode == KEY_F1 && event.pressed == true):
+		toggleDebug()
 ###
 # Utils to show/hide a loading popup
 ###
@@ -70,6 +73,11 @@ func showDebug():
 	debugOverlay.get_child(0).show()
 func hideDebug():
 	debugOverlay.get_child(0).hide()
+func toggleDebug():
+	if(debugOverlay.get_child(0).is_visible()):
+		hideDebug()
+	else:
+		showDebug()
 
 ###
 # Utils to get/show the Version

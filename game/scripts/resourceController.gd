@@ -15,11 +15,10 @@ var progressBarNode
 
 
 func _ready():
-	pass
+	set_pause_mode(PAUSE_MODE_PROCESS)
 
 func setUp(progressBar):
 	progressBarNode = progressBar
-	print(progressBarNode)
 
 func loadResource():
 	var t = Thread.new()
