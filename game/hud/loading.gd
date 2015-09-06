@@ -23,4 +23,4 @@ func getProgressBar():
 	return progressBar
 
 func _load(data):
-	get_node("Panel/VBoxContainer/Label").set_text(tr("UI_LOADING") +"\n"+ str(data))
+	get_node("Panel/VBoxContainer/Label").set_text(tr("UI_LOADING") +"\n"+ str(data.url))

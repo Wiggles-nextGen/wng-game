@@ -14,6 +14,7 @@ signal resource_loading(req)
 signal load_pooling_start
 signal load_pooling_finished
 
+var mutex = Mutex.new()
 var progressBarNode
 var loading = Thread.new()
 var pooling = Thread.new()
@@ -28,9 +29,11 @@ func setProgressBar(progressBar):
 	progressBarNode = progressBar
 
 func loadResource(data):
+	mutex.lock()
 	pool.append(data)
 	if(!pooling.is_active()):
 		pooling.start(self,"_poolLoading")
+	mutex.unlock()
 
 func _poolLoading(data):
 	emit_signal("load_pooling_start")
@@ -46,12 +49,12 @@ func _loadRes(data):
 	var res = {}
 	res.req = data
 	
-	if(dir.file_exists(data)):
-		var loader = ResourceLoader.load_interactive(data)
+	if(dir.file_exists(data.url)):
+		var loader = ResourceLoader.load_interactive(data.url)
 		if(loader == null):
 			res.err = OK
 			progressBarNode.set_max(1)
-			res.res = ResourceLoader.load(data)
+			res.res = ResourceLoader.load(data.url)
 			progressBarNode.set_value(1)
 		else:
 			progressBarNode.set_max(loader.get_stage_count())
@@ -66,6 +69,7 @@ func _loadRes(data):
 					break
 	else:
 		res.err = ERR_FILE_NOT_FOUND
-	OS.delay_msec(1000)
+	
+	OS.delay_msec(2500) #just for testing
 	progressBarNode.set_value(0)
 	emit_signal("resource_loaded",res)
