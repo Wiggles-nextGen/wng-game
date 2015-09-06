@@ -9,6 +9,13 @@
 
 extends Node
 
+var debugNode
+var worldNode
+var uiNode
+
+var debugOverlayScene = load("res://hud/debug.xscn")
+var debugOverlay
+
 var version = {}
 
 var versionStr
@@ -20,16 +27,49 @@ var loadingPopup
 
 func _ready():
 	loadingPopup = loadingPopupScene.instance()
+	debugOverlay = debugOverlayScene.instance()
+
+###
+#	Setup envirment
+###
+func setUp(debug, world, ui):
+	debugNode = debug
+	worldNode = world
+	uiNode = ui
+	
+	uiNode.add_child(loadingPopup)
+	hideLoading()
+	debugNode.add_child(debugOverlay)
+	hideDebug()
+	if(OS.is_debug_build()):
+		showDebug()
+	
+	var progressBar = loadingPopup.get_child(0).call("getProgressBar")
+	print(progressBar)
+	
+	get_node("/root/resourceController").call("setUp",progressBar)
+	
+	get_node("/root/resourceController").connect("resource_loaded",self,"hideLoading")
+	showLoading()
+	get_node("/root/resourceController").call("loadResource")
 
 ###
 # Utils to show/hide a loading popup
 ###
-func showLoading(node):
-	node.add_child(loadingPopup)
+func showLoading():
+	loadingPopup.get_child(0).show()
 	get_tree().set_pause(true)
-func hideLoading(node):
-	node.remove_child(loadingPopup)
+func hideLoading():
+	loadingPopup.get_child(0).hide()
 	get_tree().set_pause(false)
+
+###
+# Utils to show/hide a debug overlay
+###
+func showDebug():
+	debugOverlay.get_child(0).show()
+func hideDebug():
+	debugOverlay.get_child(0).hide()
 
 ###
 # Utils to get/show the Version
