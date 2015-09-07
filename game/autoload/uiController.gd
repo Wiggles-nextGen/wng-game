@@ -11,6 +11,7 @@ extends Node
 
 var resCtrl
 var gameState
+var http
 
 var debugNode
 var uiNode
@@ -30,6 +31,7 @@ func _ready():
 	set_process_input(true)
 	resCtrl = get_node("/root/resourceController")
 	gameState = get_node("/root/gameState")
+	http = get_node("/root/http")
 	
 	loadingPopup = loadingPopupScene.instance()
 	debugOverlay = debugOverlayScene.instance()
