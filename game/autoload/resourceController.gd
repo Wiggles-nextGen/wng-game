@@ -52,7 +52,7 @@ func loadResource(data):
 	return data.promise
 
 func isLoading():
-	return loading.is_active()
+	return pooling.is_active()
 
 func _poolLoading(data):
 	emit_signal("load_pooling_start")
@@ -66,7 +66,11 @@ func _poolLoading(data):
 	OS.delay_msec(500) #keep popup just for a while
 	progressBarNodeTotal.set_value(0)
 	progressBarNodeTotal.set_max(0)
+	_endPooling()
 	emit_signal("load_pooling_finished")
+
+func _endPooling():
+	pooling.wait_to_finish()
 
 func _loadRes(data):
 	emit_signal("resource_loading",data)
