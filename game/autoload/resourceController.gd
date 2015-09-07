@@ -23,6 +23,8 @@ var pooling = Thread.new()
 var pool=[]
 var dir = Directory.new()
 
+var promise = load("res://scripts/promise.gd")
+
 
 func _ready():
 	set_pause_mode(PAUSE_MODE_PROCESS)
@@ -41,11 +43,13 @@ func getLoadedCount():
 
 func loadResource(data):
 	mutex.lock()
+	data.promise = promise.new()
 	pool.append(data)
 	progressBarNodeTotal.set_max(progressBarNodeTotal.get_max()+1)
 	if(!pooling.is_active()):
 		pooling.start(self,"_poolLoading")
 	mutex.unlock()
+	return data.promise
 
 func isLoading():
 	return loading.is_active()
@@ -92,3 +96,5 @@ func _loadRes(data):
 		res.err = ERR_FILE_NOT_FOUND
 	OS.delay_msec(2500) #just for testing
 	emit_signal("resource_loaded",res)
+	if(data.promise.hasPromise()):
+		data.promise.fullfill(res)

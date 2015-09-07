@@ -36,7 +36,6 @@ func _ready():
 	
 	resCtrl.connect("load_pooling_start",self,"showLoading")
 	resCtrl.connect("load_pooling_finished",self,"hideLoading")
-	resCtrl.connect("resource_loaded",self,"_getData")
 	gameState.connect("game_start",self,"")
 	gameState.connect("game_over",self,"")
 
@@ -68,7 +67,7 @@ func setUp(debug,ui):
 # wrapps loading function
 ###
 func _load(url,id):
-	resCtrl.loadResource({"url":url,"id":id})
+	resCtrl.loadResource({"url":url,"id":id}).then(self,"_getData")
 func _getData(data):
 	if(data.req.id == ui_menu_ID && data.err == OK):
 		if(!ui_menu):
