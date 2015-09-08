@@ -9,7 +9,7 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="41">
+			<string_array  len="45">
 				<string> "CanvasLayer" </string>
 				<string> "process/pause_mode" </string>
 				<string> "layer" </string>
@@ -37,7 +37,11 @@
 				<string> "drawheight" </string>
 				<string> "Graph_TPF" </string>
 				<string> "Graph_FIXED" </string>
+				<string> "Graph_OBJ" </string>
+				<string> "Graph_RES" </string>
+				<string> "Graph_NODES" </string>
 				<string> "Graph_VRAM_USED" </string>
+				<string> "Graph_DRAW_CALLS" </string>
 				<string> "HBoxContainer" </string>
 				<string> "Version" </string>
 				<string> "Label" </string>
@@ -53,11 +57,11 @@
 				<string> "Commit" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 11 </int>
+			<int> 15 </int>
 			<string> "nodes" </string>
-			<int_array  len="247"> 				-1, -1, 0, 0, -1, 6, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 0, 0, 0, 7, 7, -1, 11, 8, 6, 9, 6, 10, 7, 11, 7, 12, 7, 13, 7, 14, 8, 15, 8, 16, 9, 17, 9, 18, 10, 0, 1, 0, 19, 19, -1, 6, 8, 6, 9, 6, 14, 8, 15, 8, 16, 0, 17, 0, 0, 2, 0, 20, 20, -1, 7, 12, 11, 13, 12, 14, 8, 15, 8, 16, 0, 17, 9, 21, 6, 0, 3, 0, 19, 22, 13, 4, 23, 14, 13, 15, 6, 16, 24, 17, 0, 3, 0, 19, 25, 13, 5, 23, 14, 11, 18, 13, 19, 6, 20, 24, 17, 0, 3, 0, 19, 26, 13, 5, 23, 14, 11, 21, 13, 22, 6, 20, 24, 17, 0, 3, 0, 19, 27, 13, 5, 23, 14, 11, 23, 13, 24, 6, 25, 24, 17, 0, 2, 0, 28, 28, -1, 7, 11, 26, 12, 11, 13, 27, 14, 8, 15, 8, 16, 0, 17, 0, 0, 8, 0, 30, 29, -1, 14, 12, 28, 13, 29, 14, 30, 15, 30, 16, 9, 31, 3, 32, 31, 33, 31, 34, 31, 35, 3, 36, 8, 37, 8, 38, 32, 39, 33, 0, 8, 0, 30, 40, -1, 15, 10, 34, 12, 11, 13, 29, 14, 30, 15, 30, 16, 0, 31, 3, 32, 31, 33, 31, 34, 31, 35, 3, 36, 8, 37, 8, 38, 35, 39, 33, 0 </int_array>
+			<int_array  len="323"> 				-1, -1, 0, 0, -1, 6, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 0, 0, 0, 7, 7, -1, 11, 8, 6, 9, 6, 10, 7, 11, 7, 12, 7, 13, 7, 14, 8, 15, 8, 16, 9, 17, 9, 18, 10, 0, 1, 0, 19, 19, -1, 10, 8, 6, 9, 6, 10, 11, 11, 11, 12, 11, 13, 11, 14, 8, 15, 8, 16, 0, 17, 0, 0, 2, 0, 20, 20, -1, 7, 12, 12, 13, 13, 14, 8, 15, 8, 16, 0, 17, 9, 21, 6, 0, 3, 0, 19, 22, 14, 4, 23, 15, 13, 16, 6, 17, 24, 18, 0, 3, 0, 19, 25, 14, 5, 23, 15, 11, 19, 13, 20, 6, 21, 24, 18, 0, 3, 0, 19, 26, 14, 5, 23, 15, 11, 22, 13, 23, 6, 21, 24, 18, 0, 3, 0, 19, 27, 14, 5, 23, 15, 11, 24, 13, 25, 6, 17, 24, 18, 0, 3, 0, 19, 28, 14, 5, 23, 15, 11, 26, 13, 27, 6, 17, 24, 18, 0, 3, 0, 19, 29, 14, 5, 23, 15, 11, 28, 13, 29, 6, 17, 24, 18, 0, 3, 0, 19, 30, 14, 5, 23, 15, 11, 30, 13, 31, 6, 32, 24, 18, 0, 3, 0, 19, 31, 14, 5, 23, 15, 11, 33, 13, 34, 6, 32, 24, 18, 0, 2, 0, 32, 32, -1, 7, 11, 35, 12, 12, 13, 36, 14, 8, 15, 8, 16, 9, 17, 0, 0, 12, 0, 34, 33, -1, 14, 12, 37, 13, 38, 14, 39, 15, 39, 16, 9, 35, 3, 36, 40, 37, 40, 38, 40, 39, 3, 40, 8, 41, 8, 42, 41, 43, 42, 0, 12, 0, 34, 44, -1, 15, 10, 43, 12, 12, 13, 38, 14, 39, 15, 39, 16, 0, 35, 3, 36, 40, 37, 40, 38, 40, 39, 3, 40, 8, 41, 8, 42, 44, 43, 42, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="36" shared="false">
+			<array  len="45" shared="false">
 				<int> 2 </int>
 				<int> 99 </int>
 				<vector2> 0, 0 </vector2>
@@ -65,13 +69,13 @@
 				<vector2> 1, 1 </vector2>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "Script" </string>
+					<string> "2D" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -58.1613, -107 </vector2>
+							<vector2> -49.2295, -88.7284 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -204,8 +208,9 @@
 				<bool> False </bool>
 				<int> 3 </int>
 				<resource  external="0">  </resource>
-				<real> 780 </real>
-				<real> 563 </real>
+				<real> 5 </real>
+				<real> 770 </real>
+				<real> 553 </real>
 				<resource  external="1">  </resource>
 				<node_path> "" </node_path>
 				<real> 17 </real>
@@ -488,6 +493,12 @@
 				<real> 59 </real>
 				<real> 63 </real>
 				<real> 80 </real>
+				<real> 84 </real>
+				<real> 101 </real>
+				<real> 105 </real>
+				<real> 122 </real>
+				<real> 126 </real>
+				<real> 143 </real>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
 					<string> "2D" </string>
@@ -624,15 +635,17 @@
 						<int> 0 </int>
 					</dictionary>
 				</dictionary>
-				<real> 567 </real>
-				<real> 580 </real>
-				<real> 742 </real>
+				<real> 147 </real>
+				<real> 164 </real>
+				<real> 557 </real>
+				<real> 570 </real>
+				<real> 732 </real>
 				<real> 13 </real>
 				<bool> True </bool>
 				<real> 1 </real>
 				<string> "version" </string>
 				<real> -1 </real>
-				<real> 746 </real>
+				<real> 736 </real>
 				<string> "hash" </string>
 			</array>
 			<string> "version" </string>

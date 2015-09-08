@@ -36,6 +36,8 @@ func _draw():
 
 func addData(p):
 	_updateArr(p)
+	maxheight = get_node("Control").get_size().height
+	offset = get_node("Label").get_size().height + maxheight
 
 func setText(t):
 	text = t
