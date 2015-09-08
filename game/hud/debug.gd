@@ -30,24 +30,27 @@ func _ready():
 	
 	get_tree().connect("screen_resized",self,"_screen_resized")
 	_screen_resized()
-	set_process(true)
+	set_process(false)
+	var t = Thread.new()
+	t.start(self,"_process")
 	
 	var version = get_node("VBoxContainer/HBoxContainer/Version")
 	var commit = get_node("VBoxContainer/HBoxContainer/Commit")
 	get_node("/root/mainController").call("setVersionAndCommit",version,commit)
 
 func _process(delta):
-	graph_fps.setText("FPS: "+str(Performance.get_monitor(Performance.TIME_FPS)))
-	graph_fps.addData(Performance.get_monitor(Performance.TIME_FPS))
-	
-	graph_tpf.setText("Process: \n"+str(Performance.get_monitor(Performance.TIME_PROCESS)))
-	graph_tpf.addData(Performance.get_monitor(Performance.TIME_PROCESS))
-	
-	graph_fixed.setText("Fixed Process: \n”"+str(Performance.get_monitor(Performance.TIME_FIXED_PROCESS)))
-	graph_fixed.addData(Performance.get_monitor(Performance.TIME_FIXED_PROCESS))
-	
-	graph_vram_used.setText("VRAM: "+str(Performance.get_monitor(Performance.RENDER_VIDEO_MEM_USED)) +"/" +str(Performance.get_monitor(Performance.RENDER_USAGE_VIDEO_MEM_TOTAL)))
-	graph_vram_used.addData(Performance.get_monitor(Performance.RENDER_USAGE_VIDEO_MEM_TOTAL))
+	while(true):
+		graph_fps.setText("FPS: "+str(Performance.get_monitor(Performance.TIME_FPS)))
+		graph_fps.addData(Performance.get_monitor(Performance.TIME_FPS))
+		
+		graph_tpf.setText("Process: \n"+str(Performance.get_monitor(Performance.TIME_PROCESS)))
+		graph_tpf.addData(Performance.get_monitor(Performance.TIME_PROCESS))
+		
+		graph_fixed.setText("Fixed Process: \n”"+str(Performance.get_monitor(Performance.TIME_FIXED_PROCESS)))
+		graph_fixed.addData(Performance.get_monitor(Performance.TIME_FIXED_PROCESS))
+		
+		graph_vram_used.setText("VRAM: "+str(Performance.get_monitor(Performance.RENDER_VIDEO_MEM_USED)) +"/" +str(Performance.get_monitor(Performance.RENDER_USAGE_VIDEO_MEM_TOTAL)))
+		graph_vram_used.addData(Performance.get_monitor(Performance.RENDER_USAGE_VIDEO_MEM_TOTAL))
 
 func _screen_resized():
 	var t = con.get_children()
