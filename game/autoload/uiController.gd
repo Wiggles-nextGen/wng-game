@@ -45,8 +45,6 @@ func _input(event):
 	if(event.type == InputEvent.KEY && event.pressed):
 		if(event.scancode == KEY_F1):
 			toggleDebug()
-		elif(event.scancode == KEY_F2):
-			_load("res://gui/ui_menu.xscn", ui_menu_ID)
 		elif(event.scancode == KEY_PAUSE && !resCtrl.isLoading() && gameState.isInGame()):
 			togglePauseMenu()
 

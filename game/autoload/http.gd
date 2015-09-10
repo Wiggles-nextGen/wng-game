@@ -58,13 +58,13 @@ func _endPooling():
 	pooling.wait_to_finish()
 
 func _httpReq(data):
-	emit_signal("resource_loading",data)
+	emit_signal("http_request",data)
 	var res={}
 	res.req = data
 	
 	print(data.url)
 	OS.delay_msec(1500)
 	
-	emit_signal("resource_loaded",res)
+	emit_signal("http_result",res)
 	if(data.promise.hasPromise()):
 		data.promise.fullfill(res)
