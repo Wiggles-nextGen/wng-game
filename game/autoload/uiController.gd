@@ -43,6 +43,8 @@ func _ready():
 	resCtrl.connect("load_pooling_finished",self,"hideLoading")
 	gameState.connect("game_start",self,"_startGame")
 	gameState.connect("game_over",self,"_endGame")
+	gameState.connect("game_paused",self,"showPauseMenu")
+	gameState.connect("game_resumed",self,"hidePauseMenu")
 
 func setUp(debug,ui):
 	debugNode = debug
