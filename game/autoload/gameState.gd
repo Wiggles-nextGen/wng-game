@@ -20,6 +20,9 @@ signal udu_changed(new)			#udu: user-driven untis e.g. drawfs
 var state = {}
 
 
+func startGame():
+	emit_signal("game_start")
+
 func serializeGame():
 	pass
 

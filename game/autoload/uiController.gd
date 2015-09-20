@@ -23,8 +23,10 @@ var debugOverlay
 
 var ui_menu
 var ui_pause
+var ui_in_game
 const ui_menu_ID = "ui_menu"
 const ui_pause_ID = "ui_pause"
+const ui_in_game_ID = "ui_in_game"
 
 func _ready():
 	set_pause_mode(PAUSE_MODE_PROCESS)
@@ -38,14 +40,14 @@ func _ready():
 	
 	resCtrl.connect("load_pooling_start",self,"showLoading")
 	resCtrl.connect("load_pooling_finished",self,"hideLoading")
-	gameState.connect("game_start",self,"")
-	gameState.connect("game_over",self,"")
+	gameState.connect("game_start",self,"_startGame")
+	gameState.connect("game_over",self,"_endGame")
 
 func _input(event):
 	if(event.type == InputEvent.KEY && event.pressed):
 		if(event.scancode == KEY_F1):
 			toggleDebug()
-		elif(event.scancode == KEY_PAUSE && !resCtrl.isLoading() && gameState.isInGame()):
+		elif(!resCtrl.isLoading() && gameState.isInGame() && (event.scancode == KEY_PAUSE || event.scancode == KEY_ESCAPE)):
 			togglePauseMenu()
 
 func setUp(debug,ui):
@@ -62,8 +64,9 @@ func setUp(debug,ui):
 	var progressBar = loadingPopup.get_child(0).getProgressBar()
 	var progressBarTotal = loadingPopup.get_child(0).getProgressBarTotal()
 	resCtrl.setProgressBar(progressBar,progressBarTotal)
-	_load("res://gui/ui_menu.xscn", ui_menu_ID)
 	_load("res://gui/ui_pause.xscn", ui_pause_ID)
+	_load("res://gui/ui_menu.xscn", ui_menu_ID)
+	_load("res://hud/in_game.xscn", ui_in_game_ID)
 
 ###
 # wrapps loading function
@@ -90,6 +93,18 @@ func _getData(data):
 			ui_pause = data.res.instance()
 			uiNode.add_child(ui_pause)
 		hidePauseMenu()
+	elif(data.req.id == ui_in_game_ID && data.err == OK):
+		if(!ui_in_game):
+			ui_in_game = data.res.instance()
+			uiNode.add_child(ui_in_game)
+		else:
+			uiNode.remove_child(ui_in_game)
+			ui_in_game.queue_free()
+			ui_in_game = data.res.instance()
+			uiNode.add_child(ui_in_game)
+		hideInGameMenu()
+	if(ui_pause):
+		ui_pause.raise()
 
 ###
 # Utils to show/hide game menu
@@ -100,6 +115,12 @@ func showMenu():
 func hideMenu():
 	if(ui_menu):
 		ui_menu.get_child(0).hide()
+func showInGameMenu():
+	if(ui_in_game):
+		ui_in_game.get_child(0).show()
+func hideInGameMenu():
+	if(ui_in_game):
+		ui_in_game.get_child(0).hide()
 func showPauseMenu():
 	if(ui_pause):
 		ui_pause.get_child(0).show()
@@ -115,6 +136,13 @@ func togglePauseMenu():
 		hidePauseMenu()
 	else:
 		showPauseMenu()
+
+func _startGame():
+	hideMenu()
+	showInGameMenu()
+func _endGame():
+	hideInGameMenu()
+	showMenu()
 
 ###
 # Utils to show/hide a loading popup

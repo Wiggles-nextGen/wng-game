@@ -21,3 +21,6 @@ func _ready():
 
 func setUp(world):
 	worldNode = world
+
+func getMiniMap():
+	pass
