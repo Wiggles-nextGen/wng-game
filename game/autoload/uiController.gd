@@ -63,7 +63,7 @@ func setUp(debug,ui):
 	var progressBarTotal = loadingPopup.get_child(0).getProgressBarTotal()
 	resCtrl.setProgressBar(progressBar,progressBarTotal)
 	_load("res://gui/ui_menu.xscn", ui_menu_ID)
-	_load("res://gui/ui_menu.xscn", ui_pause_ID)
+	_load("res://gui/ui_pause.xscn", ui_pause_ID)
 
 ###
 # wrapps loading function
@@ -89,6 +89,7 @@ func _getData(data):
 			ui_pause.queue_free()
 			ui_pause = data.res.instance()
 			uiNode.add_child(ui_pause)
+		hidePauseMenu()
 
 ###
 # Utils to show/hide game menu

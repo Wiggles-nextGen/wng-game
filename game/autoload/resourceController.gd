@@ -98,7 +98,7 @@ func _loadRes(data):
 					break
 	else:
 		res.err = ERR_FILE_NOT_FOUND
-	OS.delay_msec(2500) #just for testing
+	#OS.delay_msec(2500) #just for testing
 	emit_signal("resource_loaded",res)
 	if(data.promise.hasPromise()):
 		data.promise.fullfill(res)
