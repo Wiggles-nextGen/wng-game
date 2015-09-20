@@ -10,12 +10,21 @@
 extends CanvasLayer
 
 var control
-export (float) var ui_scale = 1
+var inputCtrl
+var ui_scale = 1
 
 
 func _ready():
 	control = get_node("Control")
+	inputCtrl = get_node("/root/inputController")
+	
 	get_tree().connect("screen_resized",self,"_update")
+	inputCtrl.connect("scale_changed",self,"_updateScale")
+	
+	_update()
+
+func _updateScale(newScale):
+	ui_scale = newScale
 	_update()
 
 func _update():

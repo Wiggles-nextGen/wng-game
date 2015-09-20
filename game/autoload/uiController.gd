@@ -44,13 +44,6 @@ func _ready():
 	gameState.connect("game_start",self,"_startGame")
 	gameState.connect("game_over",self,"_endGame")
 
-func _input(event):
-	if(event.type == InputEvent.KEY && event.pressed):
-		if(event.scancode == KEY_F1):
-			toggleDebug()
-		elif(!resCtrl.isLoading() && gameState.isInGame() && (event.scancode == KEY_PAUSE || event.scancode == KEY_ESCAPE)):
-			togglePauseMenu()
-
 func setUp(debug,ui):
 	debugNode = debug
 	uiNode = ui
