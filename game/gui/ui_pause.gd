@@ -18,5 +18,4 @@ func _ready():
 	arr.set_button_text(1,tr("UI_MENU_SETTINGS"))
 	arr.set_button_text(2,tr("UI_MENU_QUIT"))
 	arr.set_pause_mode(PAUSE_MODE_PROCESS)
-	arr.connect("button_selected",self,"_selected")
 	_setUp()

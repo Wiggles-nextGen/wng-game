@@ -7,7 +7,7 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="10">
+			<string_array  len="19">
 				<string> "new_game" </string>
 				<string> "Control" </string>
 				<string> "anchor/right" </string>
@@ -18,13 +18,22 @@
 				<string> "size_flags/vertical" </string>
 				<string> "__meta__" </string>
 				<string> "Panel" </string>
+				<string> "VBoxContainer" </string>
+				<string> "margin/left" </string>
+				<string> "margin/top" </string>
+				<string> "margin/right" </string>
+				<string> "margin/bottom" </string>
+				<string> "Button" </string>
+				<string> "toggle_mode" </string>
+				<string> "text" </string>
+				<string> "flat" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 2 </int>
+			<int> 5 </int>
 			<string> "nodes" </string>
-			<int_array  len="40"> 				-1, -1, 1, 0, -1, 7, 2, 0, 3, 0, 4, 1, 5, 2, 6, 3, 7, 3, 8, 4, 0, 0, 0, 9, 9, -1, 6, 2, 0, 3, 0, 4, 1, 5, 2, 6, 3, 7, 3, 0 </int_array>
+			<int_array  len="113"> 				-1, -1, 1, 0, -1, 7, 2, 0, 3, 0, 4, 1, 5, 2, 6, 3, 7, 3, 8, 4, 0, 0, 0, 9, 9, -1, 6, 2, 0, 3, 0, 4, 1, 5, 2, 6, 3, 7, 3, 0, 1, 0, 10, 10, -1, 10, 2, 0, 3, 0, 11, 5, 12, 5, 13, 5, 14, 5, 4, 1, 5, 1, 6, 6, 7, 6, 0, 2, 0, 1, 1, -1, 6, 13, 7, 14, 8, 4, 1, 5, 2, 6, 6, 7, 6, 0, 2, 0, 15, 15, -1, 10, 12, 9, 13, 7, 14, 10, 4, 1, 5, 2, 6, 6, 7, 3, 16, 1, 17, 11, 18, 1, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="5" shared="false">
+			<array  len="12" shared="false">
 				<int> 1 </int>
 				<bool> False </bool>
 				<bool> True </bool>
@@ -37,7 +46,7 @@
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -159.161, -20.2791 </vector2>
+							<vector2> -148.161, -27.2791 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -165,6 +174,13 @@
 						<int> 0 </int>
 					</dictionary>
 				</dictionary>
+				<real> 20 </real>
+				<int> 3 </int>
+				<real> 760 </real>
+				<real> 535 </real>
+				<real> 539 </real>
+				<real> 560 </real>
+				<string> "OK" </string>
 			</array>
 			<string> "version" </string>
 			<int> 1 </int>

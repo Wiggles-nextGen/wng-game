@@ -24,6 +24,7 @@ func _toggleMenu(menu):
 		arr.show()
 
 func _setUp():
+	arr.connect("button_selected",self,"_selected")
 	for i in range(menus.get_child_count()):
 		menus.get_child(i).connect("visibility_changed",self,"_toggleMenu",[menus.get_child(i)])
 		menus.get_child(i).hide()
