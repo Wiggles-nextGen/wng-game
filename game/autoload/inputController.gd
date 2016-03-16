@@ -36,7 +36,7 @@ func _input(event):
 				#Game-Speed
 		elif(event.scancode == KEY_KP_ADD):
 			gameState.gameIncreaseSpeed()
-		elif(event.scancode == KEY_KP_SUBSTRACT):
+		elif(event.scancode == KEY_KP_SUBTRACT):
 			gameState.gameDecreaseSpeed()
 	#UI-Scale
 	elif(event.control && event.type == InputEvent.MOUSE_BUTTON):
