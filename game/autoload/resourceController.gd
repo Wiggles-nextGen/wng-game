@@ -87,13 +87,18 @@ func _loadRes(data):
 			progressBarNode.set_value(1)
 		else:
 			progressBarNode.set_max(loader.get_stage_count())
-			while(loader.get_stage() < loader.get_stage_count()):
-				var err = loader.poll()
+			var err = 0
+			while(err != ERR_FILE_EOF):#(loader.get_stage() < loader.get_stage_count()):
+				err = loader.poll()
+				print(data.url," ",err)
+				print(loader.get_stage()," / ",loader.get_stage_count())
 				progressBarNode.set_value(loader.get_stage())
 				if(err == ERR_FILE_EOF):
+					print("finished")
 					res.err = OK
 					res.res = loader.get_resource()
 				elif(err != OK):
+					print("err")
 					res.err = err
 					break
 	else:
