@@ -68,11 +68,11 @@ func _updateGraphs(data):
 		graph_fixed.setText("Fixed Process: \n”"+str(Performance.get_monitor(Performance.TIME_FIXED_PROCESS)))
 		graph_fixed.addData(Performance.get_monitor(Performance.TIME_FIXED_PROCESS))
 		
-		#graph_vram_used.setText("VRAM: "+str(Performance.get_monitor(Performance.RENDER_VIDEO_MEM_USED)) +"/" +str(Performance.get_monitor(Performance.RENDER_USAGE_VIDEO_MEM_TOTAL)))
-		#graph_vram_used.addData(Performance.get_monitor(Performance.RENDER_USAGE_VIDEO_MEM_TOTAL))
+		graph_vram_used.setText("VRAM: "+str(Performance.get_monitor(Performance.RENDER_VIDEO_MEM_USED)) +"/" +str(Performance.get_monitor(Performance.RENDER_USAGE_VIDEO_MEM_TOTAL)))
+		graph_vram_used.addData(Performance.get_monitor(Performance.RENDER_USAGE_VIDEO_MEM_TOTAL))
 		
-		#graph_draw_calls.setText("Draw Calls: "+str(Performance.get_monitor(Performance.RENDER_DRAW_CALLS_IN_FRAME)))
-		#graph_draw_calls.addData(Performance.get_monitor(Performance.RENDER_DRAW_CALLS_IN_FRAME))
+		graph_draw_calls.setText("Draw Calls: "+str(Performance.get_monitor(Performance.RENDER_DRAW_CALLS_IN_FRAME)))
+		graph_draw_calls.addData(Performance.get_monitor(Performance.RENDER_DRAW_CALLS_IN_FRAME))
 		
 		graph_obj.setText("Objects: "+str(Performance.get_monitor(Performance.OBJECT_COUNT)))
 		graph_obj.addData(Performance.get_monitor(Performance.OBJECT_COUNT))
