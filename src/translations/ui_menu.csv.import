@@ -1,0 +1,12 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+
+[gen]
+files=[ "res://src/translations/ui_menu.de.translation", "res://src/translations/ui_menu.en.translation" ]
+
+[params]
+
+compress=true
+delimiter=0
