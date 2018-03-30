@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bubble.png-f45ac67e1cafca1f27ebcca4c6c5b528.stex"
+path="res://.import/test_bottom.png-92cf7b9dd12af11e8b6c6f587952e7b4.stex"
 
 [deps]
 
-source_file="res://hud/bubble.png"
-source_md5="5b39d3ce3121b921f9f43adf77076007"
+source_file="res://hud/test_bottom.png"
+source_md5="7e4fa94ac94f13f82e49dbf1c6dd5288"
 
-dest_files=[ "res://.import/bubble.png-f45ac67e1cafca1f27ebcca4c6c5b528.stex" ]
-dest_md5="d97f1cde676ba9a2c4484c44c1db2160"
+dest_files=[ "res://.import/test_bottom.png-92cf7b9dd12af11e8b6c6f587952e7b4.stex" ]
+dest_md5="a977c7c5a4427c512c52d77cccfcb508"
 
 [params]
 
