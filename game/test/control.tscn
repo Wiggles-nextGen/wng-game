@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bi1av08xicrjp"]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Button" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 31.0
+text = "UI_MENU_LOAD_GAME"

@@ -11,5 +11,11 @@ config_version=5
 [application]
 
 config/name="WNG"
+run/main_scene="res://test/control.tscn"
 config/icon="res://icon.png"
 config/features=PackedStringArray("4.0", "Vulkan Clustered")
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://translations/ui_menu.de.translation", "res://translations/ui_menu.en.translation")
+locale/locale_filter_mode=0
