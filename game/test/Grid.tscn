@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://bugonabua5yfk"]
+
+[ext_resource type="Script" path="res://test/Grid.gd" id="1_21v8x"]
+[ext_resource type="ArrayMesh" uid="uid://cfvfwvw12625w" path="res://test/cube.tres" id="1_lei6o"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_pbofb"]
+cell/size = 0.1
+cell/height = 0.1
+agent/height = 1.0
+agent/radius = 0.1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h7lt5"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="MeshLibrary" id="MeshLibrary_h0bkp"]
+item/0/name = "Cube"
+item/0/mesh = ExtResource( "1_lei6o" )
+item/0/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/0/shapes = [SubResource( "BoxShape3D_h7lt5" ), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/0/navmesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Node3D" type="NavigationRegion3D"]
+navmesh = SubResource( "NavigationMesh_pbofb" )
+script = ExtResource( "1_21v8x" )
+
+[node name="GridMap" type="GridMap" parent="." groups=["navmesh"]]
+mesh_library = SubResource( "MeshLibrary_h0bkp" )
+data = {
+"cells": PackedInt32Array(0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 131068, 0, 0, 131069, 0, 0, 131070, 0, 0, 131071, 0, 0, 0, 1, 0, 1, 1, 0, 2, 1, 0, 65533, 1, 0, 65534, 1, 0, 65535, 1, 0, 0, 2, 0, 1, 2, 0, 2, 2, 0, 65533, 2, 0, 65534, 2, 0, 65535, 2, 0)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.975978, 0.217871, 0, -0.217871, 0.975978, 0, 6.07204, 10.2803)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.718539, 0.695487, 0, -0.695487, 0.718539, 0, -0.678625, -0.0491562)
