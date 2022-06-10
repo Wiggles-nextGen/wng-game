@@ -9,3 +9,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+
+func _on_static_body_3d_input_event(camera, event, position, normal, shape_idx):
+	print(camera, event, position, normal, shape_idx)

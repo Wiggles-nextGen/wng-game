@@ -1,13 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://bugonabua5yfk"]
+[gd_scene load_steps=8 format=3 uid="uid://bugonabua5yfk"]
 
 [ext_resource type="Script" path="res://test/Grid.gd" id="1_21v8x"]
 [ext_resource type="ArrayMesh" uid="uid://cfvfwvw12625w" path="res://test/cube.tres" id="1_lei6o"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_pbofb"]
-cell/size = 0.1
-cell/height = 0.1
-agent/height = 1.0
-agent/radius = 0.1
+cell_size = 0.1
+cell_height = 0.1
+agent_height = 1.0
+agent_radius = 0.1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h7lt5"]
 size = Vector3(2, 2, 2)
@@ -18,6 +18,10 @@ item/0/mesh = ExtResource( "1_lei6o" )
 item/0/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/0/shapes = [SubResource( "BoxShape3D_h7lt5" ), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
 item/0/navmesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oe0uw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jqt44"]
 
 [node name="Node3D" type="NavigationRegion3D"]
 navmesh = SubResource( "NavigationMesh_pbofb" )
@@ -35,3 +39,14 @@ transform = Transform3D(1, 0, 0, 0, 0.975978, 0.217871, 0, -0.217871, 0.975978, 
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 0.718539, 0.695487, 0, -0.695487, 0.718539, 0, -0.678625, -0.0491562)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.59099)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource( "BoxShape3D_oe0uw" )
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource( "BoxMesh_jqt44" )
+
+[connection signal="input_event" from="StaticBody3D" to="." method="_on_static_body_3d_input_event"]

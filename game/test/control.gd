@@ -12,4 +12,7 @@ func _process(delta):
 
 
 func _on_button_pressed():
-	get_tree().root.set_content_scale_factor(1.5);
+	if get_tree().root.get_content_scale_factor() > 1.0:
+		get_tree().root.set_content_scale_factor(1.0);
+	else:
+		get_tree().root.set_content_scale_factor(2);
