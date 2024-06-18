@@ -1,3 +1,21 @@
-[gd_scene format=3 uid="uid://c4l53s1uw8mjf"]
+[gd_scene load_steps=3 format=3 uid="uid://c4l53s1uw8mjf"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_fje5l"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2l1bp"]
+size = Vector2(20, 20)
 
 [node name="Playground" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.91674, 0.399485, 0, -0.399485, 0.91674, 0, 1.25814, 2.00097)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PrismMesh_fje5l")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.884849, -0.0298288, 0.464921, -0.455967, 0.149292, 0.877386, -0.0955804, -0.988343, 0.1185, 1.46722, 1.3359, 0.719866)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.718047, 0)
+mesh = SubResource("PlaneMesh_2l1bp")
