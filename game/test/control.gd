@@ -21,3 +21,5 @@ func _on_button_pressed():
 		factor = .75;
 	
 	$SubViewportContainer/SubViewport.size = get_viewport().size * factor;
+	
+	$Button.text = "Change scaling - cur: " + str(factor)

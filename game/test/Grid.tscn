@@ -14,9 +14,9 @@ size = Vector3(2, 2, 2)
 
 [sub_resource type="MeshLibrary" id="MeshLibrary_h0bkp"]
 item/0/name = "Cube"
-item/0/mesh = ExtResource( "1_lei6o" )
+item/0/mesh = ExtResource("1_lei6o")
 item/0/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-item/0/shapes = [SubResource( "BoxShape3D_h7lt5" ), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/0/shapes = [SubResource("BoxShape3D_h7lt5"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
 item/0/navmesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oe0uw"]
@@ -24,11 +24,11 @@ item/0/navmesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 [sub_resource type="BoxMesh" id="BoxMesh_jqt44"]
 
 [node name="Node3D" type="NavigationRegion3D"]
-navmesh = SubResource( "NavigationMesh_pbofb" )
-script = ExtResource( "1_21v8x" )
+navmesh = SubResource("NavigationMesh_pbofb")
+script = ExtResource("1_21v8x")
 
 [node name="GridMap" type="GridMap" parent="." groups=["navmesh"]]
-mesh_library = SubResource( "MeshLibrary_h0bkp" )
+mesh_library = SubResource("MeshLibrary_h0bkp")
 data = {
 "cells": PackedInt32Array(0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 5, 0, 0, 65530, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65541, 0, 0, 131066, 0, 0, 131068, 0, 0, 131069, 0, 0, 131070, 0, 0, 131071, 0, 0, 131077, 0, 0, 196602, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 262138, 0, 0, 262139, 0, 0, 262140, 0, 0, 262141, 0, 0, 262142, 0, 0, 262143, 0, 0, -196608, 0, 0, -196607, 0, 0, -196606, 0, 0, -196605, 0, 0, -196604, 0, 0, -196603, 0, 0, -131078, 0, 0, -131077, 0, 0, -131076, 0, 0, -131075, 0, 0, -131074, 0, 0, -131073, 0, 0, -131067, 0, 0, -65542, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65531, 0, 0, -6, 0, 0, -4, 0, 0, -3, 0, 0, -2, 0, 0, -1, 0, 0, 0, 65535, 0, 1, 65535, 0, 2, 65535, 0, 3, 65535, 0, 4, 65535, 0, 65531, 65535, 0, 65532, 65535, 0, 65533, 65535, 0, 65534, 65535, 0, 65535, 65535, 0, 65536, 65535, 0, 65537, 65535, 0, 65538, 65535, 0, 65539, 65535, 0, 65540, 65535, 0, 131067, 65535, 0, 131068, 65535, 0, 131069, 65535, 0, 131070, 65535, 0, 131071, 65535, 0, 131072, 65535, 0, 131073, 65535, 0, 131074, 65535, 0, 131075, 65535, 0, 131076, 65535, 0, 196603, 65535, 0, 196604, 65535, 0, 196605, 65535, 0, 196606, 65535, 0, 196607, 65535, 0, 196608, 65535, 0, 196609, 65535, 0, 196610, 65535, 0, 196611, 65535, 0, 196612, 65535, 0, 262139, 65535, 0, 262140, 65535, 0, 262141, 65535, 0, 262142, 65535, 0, 262143, 65535, 0, -196608, 65535, 0, -196607, 65535, 0, -196606, 65535, 0, -196605, 65535, 0, -196604, 65535, 0, -131077, 65535, 0, -131076, 65535, 0, -131075, 65535, 0, -131074, 65535, 0, -131073, 65535, 0, -131072, 65535, 0, -131071, 65535, 0, -131070, 65535, 0, -131069, 65535, 0, -131068, 65535, 0, -65541, 65535, 0, -65540, 65535, 0, -65539, 65535, 0, -65538, 65535, 0, -65537, 65535, 0, -65536, 65535, 0, -65535, 65535, 0, -65534, 65535, 0, -65533, 65535, 0, -65532, 65535, 0, -5, 65535, 0, -4, 65535, 0, -3, 65535, 0, -2, 65535, 0, -1, 65535, 0)
 }
@@ -44,9 +44,13 @@ transform = Transform3D(1, 0, 0, 0, 0.718539, 0.695487, 0, -0.695487, 0.718539, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.59099)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource( "BoxShape3D_oe0uw" )
+shape = SubResource("BoxShape3D_oe0uw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-mesh = SubResource( "BoxMesh_jqt44" )
+mesh = SubResource("BoxMesh_jqt44")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.876945, 0.153162, -0.455532, 0, 0.947857, 0.318695, 0.480591, -0.279478, 0.831219, 0, 2.01892, 7.0505)
+shadow_enabled = true
 
 [connection signal="input_event" from="StaticBody3D" to="." method="_on_static_body_3d_input_event"]

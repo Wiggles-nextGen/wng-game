@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://d382e4qsflsn1"]
+
+[ext_resource type="Texture2D" uid="uid://bjqnf8y7k62vl" path="res://icon.png" id="1_2kuui"]
+[ext_resource type="Shader" path="res://test/test.gdshader" id="2_wpf3q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lql6l"]
+albedo_texture = ExtResource("1_2kuui")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_gpdxu"]
+material = SubResource("StandardMaterial3D_lql6l")
+size = Vector3(10, 1, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_colil"]
+render_priority = 0
+shader = ExtResource("2_wpf3q")
+albedo = Color(1, 1, 1, 1)
+metallic = 0.0
+metallic_texture_channel = Plane(1, 0, 0, 0)
+point_size = 1.0
+roughness = 1.0
+specular = 0.5
+texture_albedo = ExtResource("1_2kuui")
+uv1_offset = Vector3(0, 0, 0)
+uv1_scale = Vector3(1, 1, 1)
+uv2_offset = Vector3(0, 0, 0)
+uv2_scale = Vector3(1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_asoao"]
+material = SubResource("ShaderMaterial_colil")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.813318, -0.253448, -0.523716, 0.489093, 0.785353, 0.379485, 0.315122, -0.564788, 0.762701, 0, 1.49426, 0)
+visible = false
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.60568, 0)
+mesh = SubResource("BoxMesh_gpdxu")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2185, 0, 1.55611)
+mesh = SubResource("BoxMesh_asoao")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.68461, -0.406962, -0.148773)
+mesh = SubResource("BoxMesh_asoao")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.852303, 0.523049, 0, -0.523049, 0.852303, -1.63541, 2.47118, 4.31009)
+light_energy = 16.0
+shadow_enabled = true
+spot_range = 9.30919
+spot_angle = 22.8572
