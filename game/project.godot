@@ -22,5 +22,4 @@ window/size/viewport_height=800
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://translations/ui_menu.de.translation", "res://translations/ui_menu.en.translation")
 locale/locale_filter_mode=0
